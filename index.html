@@ -9,6 +9,13 @@
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
 		<link rel="stylesheet" href="dist/theme/white.css">
+		<link rel="stylesheet" href="plugin/chalkboard/style.css">
+		<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
@@ -20,6 +27,10 @@
     			flex: 1;
 			}
 		</style>
+			<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+		<script src="plugin/menu/menu.js"></script>
+
 
 
 	</head>
@@ -31,10 +42,10 @@
 					<h2>\(\times\)-Homotopy:</h2>
 					<h3>Into the Spider-Verse</h3>
 					<h4>
-						MSU-Billings <a href="https://www.msubillings.edu/mathfaculty/tchih/" target="_blank">Tien Chih</a>
+						Oxford College of Emory University <a href="https://app.oxford.emory.edu/WebApps/Directory/index.cfm/view/9984" target="_blank">Tien Chih</a>
 					</h4>
 				</section>
-				<section>
+				<!--<section>
 					<div class="container">
 
 						<div class="col">
@@ -54,13 +65,314 @@
 					</div>
 
 
-				</section>
+				</section>-->
+				
+
+
 				<section>
-					<h3>What is <strong class="fragment fade-out">\(\times\)-</strong>Homotopy?</h3>
+					
+					<section data-auto-animate>
+						<h3>What are <strong style="color:red;">Graphs</strong>?</h3>
+						
+						
+					</section>
+					
+					
+					
+					<section data-auto-animate>
+						<h3>What are <strong style="color:red;">Graphs</strong>?</h3>
+						<p>
+							A <strong style="color:red;">graph</strong> \(G\) is pair of sets \((V, E)\).
+							Where \(V\) is a set of <strong style="color:red;">vertices</strong>.
+							And \(E\) is a set of <strong style="color:red;">edges</strong> between vertices.
+						</p>
+						<p>
+							<img src="img/C4.svg" width="30%"><br> \(V=\{1,2,3,4\}, E=\{12, 23, 34, 14\}\)
+						</p>
+						
+					</section>
+					
+						
+				</section>	
+
+				<section>
+					
+					<section data-auto-animate>
+						<h3>What is a  <strong style="color:red;">walk</strong>?</h3>
+						
+						
+					</section>
+					
+					<section data-auto-animate>
+						<h3>What is a  <strong style="color:red;">walk</strong>?</h3>
+						<p>
+							Given a <strong style="color:red;">graph</strong> \(G\) a <strong style="color:red;">walk</strong> is a sequence of vertices \(v_0,\ldots, v_n\), such that \(v_i, v_{i+1}\) are adjacent (connected with an edge).
+
+
+							<p style="font-size: 30px;">
+							<img src="img/walkgif.gif" width="30%"><br> The walk \(abcdea\).
+						</p>
+						</p>
+						
+					</section>
+					
+					
+					
+						
+				</section>	
+
+				<section>
+					
+					<section data-auto-animate>
+						<h3>What happens if you <q>backtrack</q>?</h3>
+						
+						
+					</section>
+					
+					<section data-auto-animate>
+						<h3>What happens if you <q>backtrack</q>?</h3>
+						<p>
+							Given a  <strong style="color:red;">walk</strong> \(W=v_0,\ldots, \color{red}{v_{k}, x, v_{k}},\ldots v_n\) a <strong style="color:red;">prune</strong> of \(W\) is a walk: \(v_0,\ldots, \color{red}{v_{k}},\ldots v_n.\)
+
+							<p style="font-size: 30px;">
+							<img src="img/prunegif.gif" width="30%"><br> The walk \(ab\color{red}{cxc}d\mapsto ab\color{red}{c}d\).
+						</p>
+						</p>
+						
+					</section>
+					
+					
+					
+						
+				</section>	
+
+
+				<section>
+					
+					<section data-auto-animate>
+						<h3>Deforming Walks</h3>
+						
+						
+					</section>
+					
+					<section data-auto-animate>
+						<h3>Deforming Walks</h3>
+						<p>
+							A  <strong style="color:red;">spider-move</strong> of a walk  \(v_0,\ldots,v_{k-1}, \color{red}{x},v_{k+1}, \ldots v_n\) replaces \(\color{red}{x}\) with \(\color{red}{y}\): \(v_0,\ldots,v_{k-1}, \color{red}{y},v_{k+1}, \ldots v_n\) so long as \(v_{k-1}\sim y\sim v_{k+1}\).
+
+							<p style="font-size: 30px;">
+							<img src="img/SpiderMoveGif.gif" width="30%"><br> The walk \(ab\color{red}{c}d\mapsto ab\color{red}{x}d\).
+						</p>
+						</p>
+						
+					</section>
+					
+					
+					
+						
 				</section>
+
+				<section>
+					<h3>The Game</h3>
+					<p>
+						Two walks are <q>equivalent</q> \(\equiv\) if:
+
+						<ul>
+								<li class="fragment" style="font-size: 35px;">You can prune (anti-prune) from one walk to the other.</li>
+								<li class="fragment" style="font-size: 35px;">You can spider-move between the walks.</li>
+								<li class="fragment" style="font-size: 35px;">(The endpoints of the walk are fixed.)</li>
+								
+							</ul>
+					</p>		
+
+				</section>	
+
+
+				<section>
+					<img src="img/ContractibleWalk.svg" width="35%"><br>
+
+					<p>
+						Can I find a shorter equivalent walk to \(dghif\)?
+						<ol>
+							<li style="font-size: 20px;">Delete (add) backtracks.</li>
+							<li style="font-size: 20px;">Spider-Move.</li>
+							<li style="font-size: 20px;">Fix endpoints.</li>
+						</ol>	
+					</p>
+
+
+				</section>
+
+				<section>
+					<img src="img/shortergif.gif" width="35%"><br>
+
+					<p>
+						\(dghif\equiv def\).
+					</p>	
+
+				</section>	
+
+
+				<section>
+					<img src="img/nonContractibleWalk.svg" width="35%"><br>
+
+					<p>
+						Can I find a shorter equivalent walk to \(dabcf\)?
+						<ol>
+							<li style="font-size: 20px;">Delete (add) backtracks.</li>
+							<li style="font-size: 20px;">Spider-Move.</li>
+							<li style="font-size: 20px;">Fix endpoints.</li>
+						</ol>	
+					</p>	
+
+				</section>
+
+
+				<section>
+					<section data-auto-animate>
+						<p>
+							<img src="img/Concact1.svg" width="30%"><img src="img/Concact2.svg" width="30%"><img src="img/Concact3.svg" width="30%"><br>
+
+							\(\color{blue}{abx}*\color{red}{xcde}=\color{purple}{abxcde}.\)
+
+						</p>	
+
+					</section>
+
+					<section data-auto-animate>
+						
+
+						<p>
+							<img src="img/Concact1.svg" width="30%"><img src="img/Concact2.svg" width="30%"><img src="img/Concact3.svg" width="30%"><br>
+
+							\(\color{blue}{abx}*\color{red}{xcde}=\color{purple}{abxcde}.\)
+
+						</p>	
+
+						<p>
+							Given walks \(W=v_0,\ldots, \color{red}{v_n}, U=\color{red}{v_n}, w_1, \ldots, w_m\), the <strong style="color:red;">concactenation</strong>  of \(W\) and \(U\) is \(W*U=v_0,\ldots,\color{red}{v_n},\ldots, w_m.\)
+						</p>
+
+					</section>
+
+				</section>
+
+
+				<section>
+
+					<img src="img/Contract.svg" width="45%">
+
+					<p>
+						Can you find a shorter walk equivalent to \(W=abcdea\)?
+					</p>	
+
+
+				</section>
+
+				<section>
+
+					<img src="img/AlmostTorsion.gif" width="45%">
+
+					<p>
+						\(abcdea\equiv abxa.\)
+					</p>	
+
+
+				</section>
+
+				<section>
+
+					<img src="img/Contract.svg" width="45%">
+
+					<p>
+						Can you find a shortest walk equivalent to \(W^2=abcdeabcdea\)?
+					</p>	
+
+
+				</section>
+
+				<section>
+
+					<section data-auto-animate>
+						<img src="img/step1.svg" width="45%" data-id="image">
+
+						<p data-id="prose">
+							\[W^2\equiv \color{red}{abcdea}*\color{blue}{abcdea}\]
+
+						</p>	
+					</section>
+
+					<section data-auto-animate>
+						<img src="img/step2.svg" width="45%" data-id="image">
+
+						<p data-id="prose">
+							\[W^2\equiv \color{red}{abcdea}*\color{blue}{abcdea}\equiv \color{red}{abxa}*\color{blue}{abcdea}\]
+
+						</p>	
+					</section>	
+					<section data-auto-animate>
+						<img src="img/step3.svg" width="45%" data-id="image">
+
+						<p data-id="prose">
+							\[W^2\equiv\color{red}{abxa}*\color{blue}{abcdea}\equiv \color{red}{abxa}*\color{blue}{axea}\]
+
+
+						</p>	
+					</section>	
+
+					<section data-auto-animate>
+						<img src="img/step4.svg" width="45%" data-id="image">
+
+						<p data-id="prose">
+							\[W^2\equiv \color{red}{ab\underline{xa}}\color{blue}{\underline{x}ea}\equiv \color{red}{ab\underline{x}}\color{blue}{ea}\]
+							
+
+						</p>	
+					</section>	
+
+					<section data-auto-animate>
+						<img src="img/step5.svg" width="45%" data-id="image">
+
+						<p data-id="prose">
+							\[W^2\equiv \color{red}{ab\underline{x}}\color{blue}{ea}\equiv \color{red}{ab\underline{a}}\color{blue}{ea}\]
+							
+
+						</p>	
+					</section>	
+
+					<section data-auto-animate>
+						<img src="img/step6.svg" width="45%" data-id="image">
+
+						<p data-id="prose">
+							\[W^2\equiv \color{red}{\underline{aba}}\color{blue}{ea}\equiv \color{red}{\underline{a}}\color{blue}{ea}\]
+							
+
+						</p>	
+					</section>	
+
+					<section data-auto-animate>
+						<img src="img/step7.svg" width="45%" data-id="image">
+
+						<p data-id="prose">
+							\[W^2\equiv \color{red}{\underline{a}}\color{blue}{\underline{ea}}\equiv \underline{a}!\]
+							
+
+						</p>	
+					</section>	
+
+					
+
+
+				</section>
+
 				
 				
+				
 				<section>
+					<section data-auto-animate>
+						<h3>What is <strong class="fragment fade-out">\(\times\)-</strong>Homotopy?</h3>
+					</section>
+
 					<section data-auto-animate>
 						<p>
 							<strong style="color:blue;">Homotopy</strong> is the study of continuous transformations.
@@ -82,78 +394,7 @@
  							</q>-Common Math Joke.
 						</p>
 				</section>
-				</section>	
 				
-				
-				<section>
-					<section data-auto-animate>
-					<p>
-						Consider \(f, g:[-1,1]\to [-1,1]\),<br>
-						<img src="img/map.svg" width="70%">
-						
-					</p>
-					
-					
-					</section>
-					<section data-auto-animate>
-					<p>
-						Consider \(f, g:[-1,1]\to [-1,1]\),<br>
-						<img src="img/map.svg" width="70%">
-						
-					</p>
-					<p >
-						where \(f\) is the constant function \(0\): <br>
-						<img src="img/0map.svg" width="70%">
-					
-					</p>
-					
-					
-					</section>
-					<section data-auto-animate>
-					<p>
-						Consider \(f, g:[-1,1]\to [-1,1]\),<br>
-						<img src="img/map.svg" width="70%">
-						
-					</p>
-					<p >
-						where \(f\) is the constant function \(0\): <br>
-						<img src="img/0map.svg" width="70%">
-					
-					</p>
-					
-					<p >
-						and \(g\) is the identity map: <br>
-						<img src="img/idmap.svg" width="70%"  >
-					</p>
-					
-					</section>
-					<section data-auto-animate>
-					<p>
-						Consider \(f, g:[-1,1]\to [-1,1]\),<br>
-						<img src="img/map.svg" width="70%">
-						
-					</p>
-					<p >
-						where \(f\) is the constant function \(0\): <br>
-						<img src="img/0map.svg" width="70%">
-					
-					</p>
-					
-					<p >
-						and \(g\) is the identity map: <br>
-						<img src="img/idmap.svg" width="70%"  >
-					</p>
-					
-					<p>
-						We say \(f, g\) are <strong style="color:blue;">homotopic</strong>.
-					</p>
-					</section>
-				</section>
-				
-				
-				
-				
-				<section>
 					<section data-auto-animate>
 						<h3>Definition of Homotopy</h3>
 					</section>
@@ -182,21 +423,17 @@
 						<p>\(f, g:X\to Y\) are <strong style="color:blue;">homotopic</strong> </p>
 						<p>if there is a   \(\varphi:X\times [0,1]\to Y\) </p>
 						<p>such that  \(\varphi|_{(-,0)}=f\) and \(\varphi|_{(-,1)}=g\).</p>
-						<img src="img/prodmap.svg" width="70%">
+						<img src="img/tophomotopy.svg" width="70%">
 					
 					<p class="fragment">
 						\(\varphi|_{(-,i)}:X\to Y\) at <q>time</q> \(i\).
 					</p>
 					</section>
 					
+
 				
 				
-				</section>
 				
-				<section>
-					<h3>Example of \(\varphi\)</h3>
-					\(\varphi|_{(-,i)}:[-1,1]\to[-1,1], x\mapsto i\cdot x \)<br><br>
-					<iframe src="https://www.desmos.com/calculator/8o62pwdol3" width="80%" height="500" style="border: 0px solid #ccc" frameborder="0"></iframe>
 				</section>
 				
 				
@@ -213,108 +450,22 @@
 						</p>
 					</section>	
 					
-				</section>
 				
-				<section>
 					
-					<section data-auto-animate>
-						<h3>What are <strong style="color:red;">Graphs</strong>?</h3>
-						
-						
-					</section>
 					
-					<section data-auto-animate>
-						<h3>What are <strong style="color:red;">Graphs</strong>?</h3>
-						<p>
-							A <strong style="color:red;">graph</strong> \(G\) is pair of sets \((V, E)\).
-							Where \(V\) is a set of <strong style="color:red;">vertices</strong>.
-							And \(E\) is a set of <strong style="color:red;">edges</strong> between vertices.
-						</p>
-						
-					</section>
-					
-					<section data-auto-animate>
-						<h3>What are <strong style="color:red;">Graphs</strong>?</h3>
-						<p>
-							A <strong style="color:red;">graph</strong> \(G\) is pair of sets \((V, E)\).
-							Where \(V\) is a set of <strong style="color:red;">vertices</strong>.
-							And \(E\) is a set of <strong style="color:red;">edges</strong> between vertices.
-						</p>
-						<p>
-							<img src="img/C4.svg" width="20%"><br> \(V=\{1,2,3,4\}, E=\{12, 23, 34, 14\}\)
-						</p>
-						
-					</section>
-					
-						
-				</section>	
 				
 				
-				<section>
-					
+				
+				
 					<section data-auto-animate>
-						<p>
-							A pair of vertices \(1, 2\)
-						</p>
-						
-						
-						
-					</section>
-					
-					<section data-auto-animate>
-						<p>
-							A pair of vertices \(1, 2\)
-						</p>
-						<p>
-							are either <strong style="color:red;">adjacent</strong>:<br>
-							<img src="img/adjacent.svg" width="20%">
-						</p>
-						
-						
-					</section>
-					
-					<section data-auto-animate>
-						<p>
-							A pair of vertices \(1, 2\)
-						</p>
-						<p>
-							are either <strong style="color:red;">adjacent</strong>:<br>
-							<img src="img/adjacent.svg" width="20%">
-						</p>
-						<p>
-							or not <strong style="color:red;">adjacent</strong>: <br>
-							<img src="img/notadjacent.svg" width="20%">
-						</p>
-						
-					</section>
-					
-					<section data-auto-animate>
-						<p>
-							A pair of vertices \(1, 2\)
-						</p>
-						<p>
-							are either <strong style="color:red;">adjacent</strong>:<br>
-							<img src="img/adjacent.svg" width="20%">
-						</p>
-						<p>
-							or not <strong style="color:red;">adjacent</strong>: <br>
-							<img src="img/notadjacent.svg" width="20%">
-						</p>
-						<p>
-							This is a fundamentally <strong style="color:red;">discrete</strong> (non-continuous) structure.
-						</p>
+						<img src="img/C4.svg" width="40%">
+						<h4>How do we define <strong style="color:blue;">Homotopy</strong> for <strong style="color:red;">Graphs</strong>?</h4>
 					</section>
 				</section>
 				
-				
-				
-				
 				<section>
-					<img src="img/C4.svg" width="40%">
-					<h4>How do we define <strong style="color:blue;">Homotopy</strong> for <strong style="color:red;">Graphs</strong>?</h4>
-				</section>
-				
-				<section>
+
+
 					
 					
 					<section data-auto-animate style="height: 600px">
@@ -358,10 +509,7 @@
 					
 					
 					
-				</section>
 				
-				
-				<section>
 					<section data-auto-animate>
 						<h3 data-id="title">Why do this?</h3>
 					</section>
@@ -795,7 +943,7 @@
 								</div>
 							</div>
 						
-						<p style="font-size: 30px;" class="r-frame"><strong>Lemma</strong> <q>Spider Lemma</q> (CS, 2020): <br> Let \(G\) be a finite graph.  Two graph homomorphisms \(f, g:G\to H\) are <strong style="color:red;">\(\times\)-homotopic</strong> if and ony if there is a sequence of graph homomorphisms \(f_0=f, f_1, \ldots, f_n=g\) such that for any \(f_{i}, f_{i+1}\) there is at most one \(v\in V(G)\) where \(v_i(v)\neq f_{i+1}(v)\).</p>
+						<p style="font-size: 30px;" class="r-frame"><strong>Lemma</strong> <q>Spider Lemma</q> (CS, 2021): <br> Let \(G\) be a finite graph.  Two graph homomorphisms \(f, g:G\to H\) are <strong style="color:red;">\(\times\)-homotopic</strong> if and ony if there is a sequence of graph homomorphisms \(f_0=f, f_1, \ldots, f_n=g\) such that for any \(f_{i}, f_{i+1}\) there is at most one \(v\in V(G)\) where \(v_i(v)\neq f_{i+1}(v)\).</p>
 						
 					</section>
 				
@@ -806,11 +954,11 @@
 					<section>
 						<h2>Current Progress</h2>
 						<ul>
-							<li style="font-size: 30px;"><a href="https://link.springer.com/article/10.1007/s10801-020-00960-5" target="_blank">A Homotopy Category for Graphs</a>, Tien Chih &amp; Laura Scull, Journal of Algebraic Combinatorics (2020). <br> </li>
+							<li style="font-size: 30px;"><a href="https://link.springer.com/article/10.1007/s10801-020-00960-5" target="_blank">A Homotopy Category for Graphs</a>, Tien Chih &amp; Laura Scull, Journal of Algebraic Combinatorics (2021). <br> </li>
 							
-							<li style="font-size: 30px;"><a href="https://arxiv.org/abs/2007.06438" target="_blank">Fundamental Groupoids for Graphs</a>, Tien Chih &amp; Laura Scull, CGASA (accepted), 2021. <br> </li>
+							<li style="font-size: 30px;"><a href="https://arxiv.org/abs/2007.06438" target="_blank">Fundamental Groupoids for Graphs</a>, Tien Chih &amp; Laura Scull, CGASA (accepted), 2022. <br> </li>
 							
-							<li style="font-size: 30px;"><a href="https://arxiv.org/abs/2012.05378" target="_blank">Homotopy Covers for Graphs</a>, Tien Chih &amp; Laura Scull, (submitted), 2021.</li>
+							<!--<li style="font-size: 30px;"><a href="https://arxiv.org/abs/2012.05378" target="_blank">Homotopy Covers for Graphs</a>, Tien Chih &amp; Laura Scull, (submitted), 2022.</li>-->
 						
 						</ul>
 						
@@ -820,7 +968,7 @@
 					
 					<section>
 						<div class="r-frame">
-							<p style="font-size: 28px;" ><strong>Theorem</strong> (CS, 2020): <br> We can define a 2-category of graphs as follows: 
+							<p style="font-size: 28px;" ><strong>Theorem</strong> (CS, 2021): <br> We can define a 2-category of graphs as follows: 
 							<ul style="font-size: 30px;" >
 								<li>Objects [0-cells] are given by objects of \(\mathsf{Gph}\), the finite undirected graphs. </li>
 								<li>Morphisms [1-cells] are given by the morphisms of \(\mathsf{Gph}\), the graph homomorphisms.</li>
@@ -831,7 +979,7 @@
 					<br>
 						<div class="fragment">
 							<div class="r-frame">
-								<p style="font-size: 28px;" ><strong>Theorem</strong> (CS, 2020):<br>  \(\mathsf{hGph}\), the category created from \(\mathsf{Gph}\)  by identifying  2-cells, is the homotopy category for \(\mathsf{Gph}\).
+								<p style="font-size: 28px;" ><strong>Theorem</strong> (CS, 2021):<br>  \(\mathsf{hGph}\), the category created from \(\mathsf{Gph}\)  by identifying  2-cells, is the homotopy category for \(\mathsf{Gph}\).
 								</p>
 								<img src="img/hGph.svg" width="20%">
 							</div>
@@ -843,7 +991,7 @@
 				
 					<section data-auto-animate>
 						<div class="r-frame" data-id="def">
-							<p style="font-size: 30px;" ><strong>Definition</strong> (CS, 2021): <br> The <strong>fundamental group(oid)</strong> of a graph \(G\) denoted \(\Pi(G)\) is the collection of <strong style="color:red;">\(\times\)-homotopic</strong> closed walks (walks).
+							<p style="font-size: 30px;" ><strong>Definition</strong> (CS, 2022): <br> The <strong>fundamental group(oid)</strong> of a graph \(G\) denoted \(\Pi(G)\) is the collection of <strong style="color:red;">\(\times\)-homotopic</strong> closed walks (walks).
 							</p>
 						</div>
 						
@@ -852,7 +1000,7 @@
 				
 					<section data-auto-animate>
 						<div class="r-frame" data-id="def">
-							<p style="font-size: 30px;" ><strong>Definition</strong> (CS, 2021): <br> The <strong>fundamental group(oid)</strong> of a graph \(G\) denoted \(\Pi(G)\) is the collection of <strong style="color:red;">\(\times\)-homotopic</strong> closed walks (walks).
+							<p style="font-size: 30px;" ><strong>Definition</strong> (CS, 2022): <br> The <strong>fundamental group(oid)</strong> of a graph \(G\) denoted \(\Pi(G)\) is the collection of <strong style="color:red;">\(\times\)-homotopic</strong> closed walks (walks).
 							</p>
 						</div>
 						
@@ -870,7 +1018,7 @@
 					
 					<section data-auto-animate>
 						<div class="r-frame" data-id="def">
-							<p style="font-size: 30px;" ><strong>Definition</strong> (CS, 2021): <br> The <strong>fundamental group(oid)</strong> of a graph \(G\) denoted \(\Pi(G)\) is the collection of <strong style="color:red;">\(\times\)-homotopic</strong> closed walks (walks).
+							<p style="font-size: 30px;" ><strong>Definition</strong> (CS, 2022): <br> The <strong>fundamental group(oid)</strong> of a graph \(G\) denoted \(\Pi(G)\) is the collection of <strong style="color:red;">\(\times\)-homotopic</strong> closed walks (walks).
 							</p>
 						</div>
 						
@@ -892,13 +1040,13 @@
 				
 					<section>
 						<div class="r-frame">
-							<p style="font-size: 30px;" ><strong>Theorem</strong> (CS, 2021): <br> \(\Pi\) defines a  functor from the homotopy category  of graphs \(\mathsf{hGph}\) to the category of groupoids and functors up to natural isomorphism.
+							<p style="font-size: 30px;" ><strong>Theorem</strong> (CS, 2022): <br> \(\Pi\) defines a  functor from the homotopy category  of graphs \(\mathsf{hGph}\) to the category of groupoids and functors up to natural isomorphism.
 							</p>
 						</div>
 					<br>
 						<div class="fragment">
 							<div class="r-frame">
-								<p style="font-size: 30px;" ><strong>Theorem</strong> <q>Van-Kampen</q> (CS, 2021):  <br> If \(G = G_1 \cup G_2\) and  all diamonds of \(G\) are fully contained in either \(G_1\) or \(G_2\) then \(\Pi(G) = \Pi(G_1) *_{\Pi(G_1 \cap G_2)} \Pi(G_2)\), the  free product of \(\Pi(G_1)\) and \(\Pi(G_2)\) amalgamated over the common subgroupoid \(\Pi(G_1 \cap G_2)\).  
+								<p style="font-size: 30px;" ><strong>Theorem</strong> <q>Van-Kampen</q> (CS, 2022):  <br> If \(G = G_1 \cup G_2\) and  all diamonds of \(G\) are fully contained in either \(G_1\) or \(G_2\) then \(\Pi(G) = \Pi(G_1) *_{\Pi(G_1 \cap G_2)} \Pi(G_2)\), the  free product of \(\Pi(G_1)\) and \(\Pi(G_2)\) amalgamated over the common subgroupoid \(\Pi(G_1 \cap G_2)\).  
 								</p>
 							</div>
 						</div>
@@ -907,11 +1055,11 @@
 					</section>
 				
 				
-					<section>
+					<!--<section>
 
 						<img src="img/HomotopyLift.gif" width="60%">
 						<div class="r-frame">
-								<p style="font-size: 30px;" ><strong>Definition</strong>  (CS, 2021):  <br> A graph morphism between   graphs  \(f:\widetilde{G}\to G\) is a <strong style="color:red;">homotopy covering map</strong> if given any \(v\) in \(G\) and \(\tilde{v}\in f^{-1}(v)\), walks of length 2 starting at \(v\) lift bijectively to walks of length 2 starting at \(\tilde{v}\) in a way that preserves endpoints.
+								<p style="font-size: 30px;" ><strong>Definition</strong>  (CS, 2022):  <br> A graph morphism between   graphs  \(f:\widetilde{G}\to G\) is a <strong style="color:red;">homotopy covering map</strong> if given any \(v\) in \(G\) and \(\tilde{v}\in f^{-1}(v)\), walks of length 2 starting at \(v\) lift bijectively to walks of length 2 starting at \(\tilde{v}\) in a way that preserves endpoints.
 								</p>
 						</div>
 					</section>
@@ -919,7 +1067,7 @@
 					<section>
 
 						<div class="r-frame">
-								<p style="font-size: 30px;" ><strong>Definition</strong>  (CS, 2021):  <br> Given a connected graph \(G\), its  <strong style="color:red;">universal cover</strong> is a graph \(U\) whose vertices are <strong style="color:red;">\(\times\)-homotopy</strong> covers of walks in \(G\).  Walks are adjacent if they differ by one <q>step</q>.  <br><br> \(\rho:U\to G\) mapping a walk to its endpoint is the <strong style="color:red;">covering map</strong>.
+								<p style="font-size: 30px;" ><strong>Definition</strong>  (CS, 2022):  <br> Given a connected graph \(G\), its  <strong style="color:red;">universal cover</strong> is a graph \(U\) whose vertices are <strong style="color:red;">\(\times\)-homotopy</strong> covers of walks in \(G\).  Walks are adjacent if they differ by one <q>step</q>.  <br><br> \(\rho:U\to G\) mapping a walk to its endpoint is the <strong style="color:red;">covering map</strong>.
 								</p>
 						</div>
 						<img src="img/Universal Cover.gif" width="60%">
@@ -929,7 +1077,7 @@
 					<section>
 
 						<div class="r-frame">
-								<p style="font-size: 30px;" ><strong>Theorem</strong>  (CS, 2021):  <br> Suppose that  \(f:\widetilde{G}\to G\) is a <strong style="color:red;">\(\times\)-homotopy cover</strong> and   \(\tilde{v}\in f^{-1}(v)\).  Then there is a unique map  \(\tilde{\rho}: U\to \widetilde{G}\) such that \(\rho=f\circ\tilde{\rho}\) and \(\tilde{\rho}([v])=\tilde{v}\), and the map \(\tilde{\rho}\) is a <strong style="color:red;">\(\times\)-homotopy cover</strong>.
+								<p style="font-size: 30px;" ><strong>Theorem</strong>  (CS, 2022):  <br> Suppose that  \(f:\widetilde{G}\to G\) is a <strong style="color:red;">\(\times\)-homotopy cover</strong> and   \(\tilde{v}\in f^{-1}(v)\).  Then there is a unique map  \(\tilde{\rho}: U\to \widetilde{G}\) such that \(\rho=f\circ\tilde{\rho}\) and \(\tilde{\rho}([v])=\tilde{v}\), and the map \(\tilde{\rho}\) is a <strong style="color:red;">\(\times\)-homotopy cover</strong>.
 								</p>
 						</div>
 						
@@ -937,7 +1085,7 @@
 						
 						<div class="fragment">
 							<div class="r-frame">
-								<p style="font-size: 30px;" ><strong>Theorem</strong>  (CS, 2021):  <br> \(\tilde{G}\) is a <strong style="color:red;">\(\times\)-homotopy cover</strong> of \(G\) if and only if it is isomorphic to a graph quotient of \(U\).
+								<p style="font-size: 30px;" ><strong>Theorem</strong>  (CS, 2022):  <br> \(\tilde{G}\) is a <strong style="color:red;">\(\times\)-homotopy cover</strong> of \(G\) if and only if it is isomorphic to a graph quotient of \(U\).
 								</p>
 							</div>
 								
@@ -948,21 +1096,24 @@
 						
 				
 				
-				</section>
+				</section>-->
+
+			</section>
 			
 			
 			<section>
-				<section>
+				<section data-auto-animate> 
 					<h2>Student Work!</h2>
 					<ul>
-						<li class="fragment" style="font-size: 40px;">The <q>Spider Lemma</q> takes an abstract construction and makes it very concrete.</li>
-						<li class="fragment" style="font-size: 40px;">This is an open area of research with many directions.</li>
-						<li class="fragment" style="font-size: 40px;">Supervised teams of students in the 20-21 AY, supported by the CURM undergraduate research grant.</li>
-						<li class="fragment" style="font-size: 40px;">We were invited to speak in the JMM CURM session.</li>
+						<li style="font-size: 40px;">The <q>Spider Lemma</q> takes an abstract construction and makes it very concrete.</li>
+						<li  style="font-size: 40px;">This is an open area of research with many directions.</li>
+						<li  style="font-size: 40px;">Supervised teams of students in the 20-21 AY, supported by the CURM undergraduate research grant.</li>
+						<li  style="font-size: 40px;">We were invited to speak in the 2022 JMM CURM session.</li>
+						<li  style="font-size: 40px;">Outstanding Poster Award at 2023 MathFest.</li>
 					</ul>
 				</section>
 				
-				<section>
+				<section data-auto-animate>
 					<div class="r-frame">
 								<p style="font-size: 30px;" ><strong>Definition</strong>:  <br> 
 									If \(f,g:G\to H\) differ on  one vertex, then they are a <strong style="color:red;">spider-pair</strong>.
@@ -1160,6 +1311,17 @@
 				</iframe>
 				
 			</section>
+
+			<section>
+				<h3>Award Winning Work!</h3>
+				<p style="font-size: 25px;" class="r-frame" data-id="thm"><strong>Theorem</strong> (Behal, C):  <br> 
+				$\Pi(H(n,3))\cong \mathbb{Z}^n$, and  $\Pi(H(n,k))\cong \mathbb{Z}_2^n$ when $k\neq 3$.
+				</p>
+
+				
+				<img src="img/GWGenerate.gif" width="50%"><img src="img/GWCommute.gif" width="45%">
+				
+			</section>
 				
 		</section>
 		
@@ -1184,10 +1346,10 @@
 			<section data-auto-animate>
 				<h2 data-id="title">Future Directions</h2>
 				
-				<img src="img/K4covers.svg" width="40%" data-id="Null">
+				<img src="img/Universal Cover.gif" width="80%" data-id="Null">
 				
 				<p style="font-size: 30px;" class="r-frame" data-id="thm">
-				Enumerate <strong style="color:red;">\(\times\)-homotopy</strong> covers.
+				Study <strong style="color:red;">\(\times\)-homotopy</strong> covers.
 				</p>
 				
 			</section>
@@ -1241,6 +1403,11 @@
 			});
 		</script>
 		<script src="plugin/math/math.js"></script>
+		<script src="plugin/chalkboard/plugin.js"></script>
+		<script src="plugin/customcontrols/plugin.js"></script>
+
+
+
 	<script>
   	Reveal.initialize({
 		math: {
@@ -1249,9 +1416,54 @@
 			// pass other options into `MathJax.Hub.Config()`
 			TeX: { Macros: { RR: "{\\bf R}" } }
 		},
-		plugins: [ RevealMath ]
+
+		chalkboard: {
+        boardmarkerWidth: 3,
+        chalkWidth: 7,
+        chalkEffect: 1.0,
+        storage: null,
+        src: null,
+        readOnly: undefined,
+        transition: 800,
+        theme: "chalkboard",
+        background: [ 'rgba(127,127,127,.1)' , path + 'img/blackboard.png' ],
+        grid: { color: 'rgb(50,50,10,0.5)', distance: 80, width: 2},
+        eraser: { src: path + 'img/sponge.png', radius: 20},
+        boardmarkers : [
+                { color: 'rgba(100,100,100,1)', cursor: 'url(' + path + 'img/boardmarker-black.png), auto'},
+                { color: 'rgba(30,144,255, 1)', cursor: 'url(' + path + 'img/boardmarker-blue.png), auto'},
+                { color: 'rgba(220,20,60,1)', cursor: 'url(' + path + 'img/boardmarker-red.png), auto'},
+                { color: 'rgba(50,205,50,1)', cursor: 'url(' + path + 'img/boardmarker-green.png), auto'},
+                { color: 'rgba(255,140,0,1)', cursor: 'url(' + path + 'img/boardmarker-orange.png), auto'},
+                { color: 'rgba(150,0,20150,1)', cursor: 'url(' + path + 'img/boardmarker-purple.png), auto'},
+                { color: 'rgba(255,220,0,1)', cursor: 'url(' + path + 'img/boardmarker-yellow.png), auto'}
+        ],
+        chalks: [
+                { color: 'rgba(255,255,255,0.5)', cursor: 'url(' + path + 'img/chalk-white.png), auto'},
+                { color: 'rgba(96, 154, 244, 0.5)', cursor: 'url(' + path + 'img/chalk-blue.png), auto'},
+                { color: 'rgba(237, 20, 28, 0.5)', cursor: 'url(' + path + 'img/chalk-red.png), auto'},
+                { color: 'rgba(20, 237, 28, 0.5)', cursor: 'url(' + path + 'img/chalk-green.png), auto'},
+                { color: 'rgba(220, 133, 41, 0.5)', cursor: 'url(' + path + 'img/chalk-orange.png), auto'},
+                { color: 'rgba(220,0,220,0.5)', cursor: 'url(' + path + 'img/chalk-purple.png), auto'},
+                { color: 'rgba(255,220,0,0.5)', cursor: 'url(' + path + 'img/chalk-yellow.png), auto'}
+        ]
+    },
+    customcontrols: {
+  		controls: [
+  			{ icon: '<i class="fa fa-pen-square"></i>',
+  			  title: 'Toggle chalkboard (B)',
+  			  action: 'RevealChalkboard.toggleChalkboard();'
+  			},
+  			{ icon: '<i class="fa fa-pen"></i>',
+  			  title: 'Toggle notes canvas (C)',
+  			  action: 'RevealChalkboard.toggleNotesCanvas();'
+  			}
+  		]
+    },
+
+		plugins: [ RevealMath, RevealChalkboard, RevealCustomControls, RevealMenu  ]
 		});
-		</script>
+	</script>
 
 	</body>
 </html>
